@@ -126,7 +126,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13636
+  m_Name: pb_Mesh13638
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -299,7 +299,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13744
+  m_Name: pb_Mesh13746
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -481,9 +481,10 @@ GameObject:
   - component: {fileID: 254004184}
   - component: {fileID: 254004189}
   - component: {fileID: 254004190}
+  - component: {fileID: 254004192}
   - component: {fileID: 254004191}
   m_Layer: 0
-  m_Name: Card#04
+  m_Name: Card#03
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -824,6 +825,22 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   finalPosition: {x: 0, y: 0, z: 0}
   cardRB: {fileID: 0}
+  canClick: 0
+  cardCheck: {fileID: 538437960}
+--- !u!114 &254004192
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 254004183}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28aa499d178fe3d4f85f89722ae96c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: KiddyKong
+  cardGroup: 3
 --- !u!1 &465498521
 GameObject:
   m_ObjectHideFlags: 0
@@ -955,7 +972,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 493167889}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.93, z: 0}
+  m_LocalPosition: {x: 0, y: -0.01, z: 0}
   m_LocalScale: {x: 50, y: 1, z: 50}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1003,6 +1020,8 @@ GameObject:
   m_Component:
   - component: {fileID: 538437958}
   - component: {fileID: 538437957}
+  - component: {fileID: 538437960}
+  - component: {fileID: 538437959}
   m_Layer: 0
   m_Name: GAME_DATA
   m_TagString: Untagged
@@ -1040,6 +1059,36 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &538437959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538437956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f9b7bb4a1598b344bce3315cf5975c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playername: 
+  moves: 0
+  finalTime: 0
+  finalPoints: 0
+--- !u!114 &538437960
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 538437956}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 18ff42bdfdea15040bad38cb48efae76, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  firstCard: {fileID: 0}
+  secondCard: {fileID: 0}
 --- !u!1 &624729859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1055,9 +1104,10 @@ GameObject:
   - component: {fileID: 624729860}
   - component: {fileID: 624729865}
   - component: {fileID: 624729866}
+  - component: {fileID: 624729868}
   - component: {fileID: 624729867}
   m_Layer: 0
-  m_Name: Card#01
+  m_Name: Card#00
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1398,6 +1448,22 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   finalPosition: {x: 0, y: 0, z: 0}
   cardRB: {fileID: 0}
+  canClick: 0
+  cardCheck: {fileID: 538437960}
+--- !u!114 &624729868
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 624729859}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28aa499d178fe3d4f85f89722ae96c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: DonkeyKong
+  cardGroup: 0
 --- !u!1 &670010427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1413,9 +1479,10 @@ GameObject:
   - component: {fileID: 670010428}
   - component: {fileID: 670010433}
   - component: {fileID: 670010434}
+  - component: {fileID: 670010436}
   - component: {fileID: 670010435}
   m_Layer: 0
-  m_Name: Card#02
+  m_Name: Card#01
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1756,6 +1823,22 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   finalPosition: {x: 0, y: 0, z: 0}
   cardRB: {fileID: 0}
+  canClick: 0
+  cardCheck: {fileID: 538437960}
+--- !u!114 &670010436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 670010427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28aa499d178fe3d4f85f89722ae96c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: DiddyKong
+  cardGroup: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -1862,9 +1945,10 @@ GameObject:
   - component: {fileID: 826548834}
   - component: {fileID: 826548839}
   - component: {fileID: 826548840}
+  - component: {fileID: 826548842}
   - component: {fileID: 826548841}
   m_Layer: 0
-  m_Name: Card#06
+  m_Name: Card#05
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2205,6 +2289,22 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   finalPosition: {x: 0, y: 0, z: 0}
   cardRB: {fileID: 0}
+  canClick: 0
+  cardCheck: {fileID: 538437960}
+--- !u!114 &826548842
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 826548833}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28aa499d178fe3d4f85f89722ae96c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: CrankyKong
+  cardGroup: 5
 --- !u!1 &841438149
 GameObject:
   m_ObjectHideFlags: 0
@@ -2220,9 +2320,10 @@ GameObject:
   - component: {fileID: 841438150}
   - component: {fileID: 841438155}
   - component: {fileID: 841438156}
+  - component: {fileID: 841438158}
   - component: {fileID: 841438157}
   m_Layer: 0
-  m_Name: Card#04
+  m_Name: Card#03
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2563,13 +2664,29 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   finalPosition: {x: 0, y: 0, z: 0}
   cardRB: {fileID: 0}
+  canClick: 0
+  cardCheck: {fileID: 538437960}
+--- !u!114 &841438158
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 841438149}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28aa499d178fe3d4f85f89722ae96c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: KiddyKong
+  cardGroup: 3
 --- !u!43 &914739900
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13654
+  m_Name: pb_Mesh13656
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -2834,9 +2951,10 @@ GameObject:
   - component: {fileID: 1012416249}
   - component: {fileID: 1012416254}
   - component: {fileID: 1012416255}
+  - component: {fileID: 1012416257}
   - component: {fileID: 1012416256}
   m_Layer: 0
-  m_Name: Card#03
+  m_Name: Card#02
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3177,13 +3295,29 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   finalPosition: {x: 0, y: 0, z: 0}
   cardRB: {fileID: 0}
+  canClick: 0
+  cardCheck: {fileID: 538437960}
+--- !u!114 &1012416257
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1012416248}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28aa499d178fe3d4f85f89722ae96c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: DixieKong
+  cardGroup: 2
 --- !u!43 &1020020770
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13766
+  m_Name: pb_Mesh13768
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3365,9 +3499,10 @@ GameObject:
   - component: {fileID: 1155691573}
   - component: {fileID: 1155691578}
   - component: {fileID: 1155691579}
+  - component: {fileID: 1155691581}
   - component: {fileID: 1155691580}
   m_Layer: 0
-  m_Name: Card#02
+  m_Name: Card#01
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3708,13 +3843,29 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   finalPosition: {x: 0, y: 0, z: 0}
   cardRB: {fileID: 0}
+  canClick: 0
+  cardCheck: {fileID: 538437960}
+--- !u!114 &1155691581
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1155691572}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28aa499d178fe3d4f85f89722ae96c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: DiddyKong
+  cardGroup: 1
 --- !u!43 &1221231546
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13808
+  m_Name: pb_Mesh13810
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -3887,7 +4038,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13696
+  m_Name: pb_Mesh13698
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -4069,9 +4220,10 @@ GameObject:
   - component: {fileID: 1487100017}
   - component: {fileID: 1487100022}
   - component: {fileID: 1487100023}
+  - component: {fileID: 1487100025}
   - component: {fileID: 1487100024}
   m_Layer: 0
-  m_Name: Card#05
+  m_Name: Card#04
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4412,6 +4564,22 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   finalPosition: {x: 0, y: 0, z: 0}
   cardRB: {fileID: 0}
+  canClick: 0
+  cardCheck: {fileID: 538437960}
+--- !u!114 &1487100025
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1487100016}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28aa499d178fe3d4f85f89722ae96c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: FunkyKong
+  cardGroup: 4
 --- !u!1 &1599816909
 GameObject:
   m_ObjectHideFlags: 0
@@ -4427,9 +4595,10 @@ GameObject:
   - component: {fileID: 1599816910}
   - component: {fileID: 1599816915}
   - component: {fileID: 1599816916}
+  - component: {fileID: 1599816918}
   - component: {fileID: 1599816917}
   m_Layer: 0
-  m_Name: Card#06
+  m_Name: Card#05
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4770,6 +4939,22 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   finalPosition: {x: 0, y: 0, z: 0}
   cardRB: {fileID: 0}
+  canClick: 0
+  cardCheck: {fileID: 538437960}
+--- !u!114 &1599816918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1599816909}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28aa499d178fe3d4f85f89722ae96c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: CrankyKong
+  cardGroup: 5
 --- !u!43 &1698005487
 Mesh:
   m_ObjectHideFlags: 0
@@ -4949,7 +5134,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13724
+  m_Name: pb_Mesh13726
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5122,7 +5307,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13830
+  m_Name: pb_Mesh13832
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5304,9 +5489,10 @@ GameObject:
   - component: {fileID: 1836450257}
   - component: {fileID: 1836450262}
   - component: {fileID: 1836450263}
+  - component: {fileID: 1836450265}
   - component: {fileID: 1836450264}
   m_Layer: 0
-  m_Name: Card#03
+  m_Name: Card#02
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5647,13 +5833,29 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   finalPosition: {x: 0, y: 0, z: 0}
   cardRB: {fileID: 0}
+  canClick: 0
+  cardCheck: {fileID: 538437960}
+--- !u!114 &1836450265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1836450256}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28aa499d178fe3d4f85f89722ae96c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: DixieKong
+  cardGroup: 2
 --- !u!43 &1913695927
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13678
+  m_Name: pb_Mesh13680
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -5826,7 +6028,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13784
+  m_Name: pb_Mesh13786
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -6008,9 +6210,10 @@ GameObject:
   - component: {fileID: 1958988066}
   - component: {fileID: 1958988071}
   - component: {fileID: 1958988072}
+  - component: {fileID: 1958988074}
   - component: {fileID: 1958988073}
   m_Layer: 0
-  m_Name: Card#01
+  m_Name: Card#00
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6351,6 +6554,22 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   finalPosition: {x: 0, y: 0, z: 0}
   cardRB: {fileID: 0}
+  canClick: 0
+  cardCheck: {fileID: 538437960}
+--- !u!114 &1958988074
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1958988065}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28aa499d178fe3d4f85f89722ae96c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: DonkeyKong
+  cardGroup: 0
 --- !u!1 &2074179803
 GameObject:
   m_ObjectHideFlags: 0
@@ -6366,9 +6585,10 @@ GameObject:
   - component: {fileID: 2074179804}
   - component: {fileID: 2074179809}
   - component: {fileID: 2074179810}
+  - component: {fileID: 2074179812}
   - component: {fileID: 2074179811}
   m_Layer: 0
-  m_Name: Card#05
+  m_Name: Card#04
   m_TagString: Card
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -6709,13 +6929,29 @@ MonoBehaviour:
   initialPosition: {x: 0, y: 0, z: 0}
   finalPosition: {x: 0, y: 0, z: 0}
   cardRB: {fileID: 0}
+  canClick: 0
+  cardCheck: {fileID: 538437960}
+--- !u!114 &2074179812
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2074179803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 28aa499d178fe3d4f85f89722ae96c0e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  cardName: FunkyKong
+  cardGroup: 4
 --- !u!43 &2144150697
 Mesh:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh13848
+  m_Name: pb_Mesh13850
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2

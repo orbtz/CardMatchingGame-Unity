@@ -1,6 +1,5 @@
 ﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.UIElements;
 
 public class MouseInput : MonoBehaviour
 {
@@ -10,10 +9,16 @@ public class MouseInput : MonoBehaviour
     public Vector3 finalPosition;
 
     public Rigidbody cardRB;
+    public bool canClick;
+
+    public CardMatchCheck cardCheck;
+    public CardData cardData;
 
     private void Start()
     {
-        cardRB = this.GetComponent<Rigidbody>();
+        cardRB = GetComponent<Rigidbody>();
+        cardData = GetComponent<CardData>();
+        canClick = true;
     }
 
     IEnumerator RiseCard()
@@ -49,19 +54,40 @@ public class MouseInput : MonoBehaviour
 
         cardRB.useGravity = true;
         cardRB.isKinematic = false;
+
+        canClick = true;
     }
 
     public void OnMouseOver()
     {
-        
-        if (Input.GetMouseButtonDown(0) ){
-            cardRB.useGravity = false;
-            cardRB.isKinematic = true;
+        if (Input.GetMouseButtonDown(0) && canClick && cardData.isActiveToFlip)
+        {
 
-            initialPosition = transform.localPosition;
-            finalPosition = transform.localPosition + (Vector3.up * flipData.maxHeigth);
+            if (cardCheck.firstCard == null || cardCheck.secondCard == null)
+            {
 
-            StartCoroutine(RiseCard());
+                if (cardCheck.firstCard == null)
+                {
+                    cardCheck.firstCard = this.gameObject;
+
+                }
+                else
+                {
+                    cardCheck.secondCard = this.gameObject;
+
+                }
+
+                canClick = false;
+                cardData.isActiveToFlip = false;
+
+                cardRB.useGravity = false;
+                cardRB.isKinematic = true;
+
+                initialPosition = transform.localPosition;
+                finalPosition = transform.localPosition + (Vector3.up * flipData.maxHeigth);
+
+                StartCoroutine(RiseCard());
+            }
         }
     }
 }
