@@ -466,6 +466,49 @@ Mesh:
     offset: 0
     size: 0
     path: 
+--- !u!1 &97724350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 97724352}
+  - component: {fileID: 97724351}
+  m_Layer: 0
+  m_Name: SOCKET
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &97724351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97724350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5806b9c0817e6f948b10287c1e49bbf8, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!4 &97724352
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 97724350}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.6996336, y: 6.6982574, z: -40.23774}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 5
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &254004183
 GameObject:
   m_ObjectHideFlags: 0
@@ -827,6 +870,7 @@ MonoBehaviour:
   cardRB: {fileID: 0}
   canClick: 0
   cardCheck: {fileID: 538437960}
+  cardData: {fileID: 0}
 --- !u!114 &254004192
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -841,6 +885,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: KiddyKong
   cardGroup: 3
+  isActiveToFlip: 1
 --- !u!1 &465498521
 GameObject:
   m_ObjectHideFlags: 0
@@ -1089,6 +1134,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
+  isPlayingFlipAnimation: 0
 --- !u!1 &624729859
 GameObject:
   m_ObjectHideFlags: 0
@@ -1450,6 +1496,7 @@ MonoBehaviour:
   cardRB: {fileID: 0}
   canClick: 0
   cardCheck: {fileID: 538437960}
+  cardData: {fileID: 0}
 --- !u!114 &624729868
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1464,6 +1511,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: DonkeyKong
   cardGroup: 0
+  isActiveToFlip: 1
 --- !u!1 &670010427
 GameObject:
   m_ObjectHideFlags: 0
@@ -1825,6 +1873,7 @@ MonoBehaviour:
   cardRB: {fileID: 0}
   canClick: 0
   cardCheck: {fileID: 538437960}
+  cardData: {fileID: 0}
 --- !u!114 &670010436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1839,6 +1888,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: DiddyKong
   cardGroup: 1
+  isActiveToFlip: 1
 --- !u!1 &705507993
 GameObject:
   m_ObjectHideFlags: 0
@@ -2291,6 +2341,7 @@ MonoBehaviour:
   cardRB: {fileID: 0}
   canClick: 0
   cardCheck: {fileID: 538437960}
+  cardData: {fileID: 0}
 --- !u!114 &826548842
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2305,6 +2356,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: CrankyKong
   cardGroup: 5
+  isActiveToFlip: 1
 --- !u!1 &841438149
 GameObject:
   m_ObjectHideFlags: 0
@@ -2666,6 +2718,7 @@ MonoBehaviour:
   cardRB: {fileID: 0}
   canClick: 0
   cardCheck: {fileID: 538437960}
+  cardData: {fileID: 0}
 --- !u!114 &841438158
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2680,6 +2733,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: KiddyKong
   cardGroup: 3
+  isActiveToFlip: 1
 --- !u!43 &914739900
 Mesh:
   m_ObjectHideFlags: 0
@@ -3297,6 +3351,7 @@ MonoBehaviour:
   cardRB: {fileID: 0}
   canClick: 0
   cardCheck: {fileID: 538437960}
+  cardData: {fileID: 0}
 --- !u!114 &1012416257
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3311,6 +3366,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: DixieKong
   cardGroup: 2
+  isActiveToFlip: 1
 --- !u!43 &1020020770
 Mesh:
   m_ObjectHideFlags: 0
@@ -3845,6 +3901,7 @@ MonoBehaviour:
   cardRB: {fileID: 0}
   canClick: 0
   cardCheck: {fileID: 538437960}
+  cardData: {fileID: 0}
 --- !u!114 &1155691581
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3859,6 +3916,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: DiddyKong
   cardGroup: 1
+  isActiveToFlip: 1
 --- !u!43 &1221231546
 Mesh:
   m_ObjectHideFlags: 0
@@ -4566,6 +4624,7 @@ MonoBehaviour:
   cardRB: {fileID: 0}
   canClick: 0
   cardCheck: {fileID: 538437960}
+  cardData: {fileID: 0}
 --- !u!114 &1487100025
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4580,6 +4639,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: FunkyKong
   cardGroup: 4
+  isActiveToFlip: 1
 --- !u!1 &1599816909
 GameObject:
   m_ObjectHideFlags: 0
@@ -4941,6 +5001,7 @@ MonoBehaviour:
   cardRB: {fileID: 0}
   canClick: 0
   cardCheck: {fileID: 538437960}
+  cardData: {fileID: 0}
 --- !u!114 &1599816918
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4955,6 +5016,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: CrankyKong
   cardGroup: 5
+  isActiveToFlip: 1
 --- !u!43 &1698005487
 Mesh:
   m_ObjectHideFlags: 0
@@ -5835,6 +5897,7 @@ MonoBehaviour:
   cardRB: {fileID: 0}
   canClick: 0
   cardCheck: {fileID: 538437960}
+  cardData: {fileID: 0}
 --- !u!114 &1836450265
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5849,6 +5912,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: DixieKong
   cardGroup: 2
+  isActiveToFlip: 1
 --- !u!43 &1913695927
 Mesh:
   m_ObjectHideFlags: 0
@@ -6556,6 +6620,7 @@ MonoBehaviour:
   cardRB: {fileID: 0}
   canClick: 0
   cardCheck: {fileID: 538437960}
+  cardData: {fileID: 0}
 --- !u!114 &1958988074
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6570,6 +6635,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: DonkeyKong
   cardGroup: 0
+  isActiveToFlip: 1
 --- !u!1 &2074179803
 GameObject:
   m_ObjectHideFlags: 0
@@ -6931,6 +6997,7 @@ MonoBehaviour:
   cardRB: {fileID: 0}
   canClick: 0
   cardCheck: {fileID: 538437960}
+  cardData: {fileID: 0}
 --- !u!114 &2074179812
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6945,6 +7012,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   cardName: FunkyKong
   cardGroup: 4
+  isActiveToFlip: 1
 --- !u!43 &2144150697
 Mesh:
   m_ObjectHideFlags: 0
