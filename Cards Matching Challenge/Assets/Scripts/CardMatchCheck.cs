@@ -6,7 +6,12 @@ public class CardMatchCheck : MonoBehaviour
     public GameObject firstCard;
     public GameObject secondCard;
 
+    public PlayerSessionInformation PlayerSessionInformation;
+
     public bool isPlayingFlipAnimation = false;
+    public bool isPlayingClickAnimation = false;
+
+    bool OnDoubleCardFlipFunctionActive = false;
 
     IEnumerator DelayedFlip()
     {
@@ -22,32 +27,58 @@ public class CardMatchCheck : MonoBehaviour
         secondCard = null;
 
         isPlayingFlipAnimation = false;
+        OnDoubleCardFlipFunctionActive = false;
+    }
 
+    IEnumerator DelayedClick()
+    {
+        yield return new WaitForSeconds(0.8f);
+
+        firstCard = null;
+        secondCard = null;
+
+        isPlayingClickAnimation = false;
+        OnDoubleCardFlipFunctionActive = false;
+    }
+
+    public void OnDoubleCardFlip()
+    {
+        PlayerSessionInformation.SetExtraMove(); //Add Move
+
+        int firstCardGroup = firstCard.GetComponent<CardData>().cardGroup;
+        int secondCardGroup = secondCard.GetComponent<CardData>().cardGroup;
+
+        if (firstCardGroup == secondCardGroup)
+        {
+            // Set Inactive
+            firstCard.GetComponent<CardData>().SetCardInactiveToPlay();
+            secondCard.GetComponent<CardData>().SetCardInactiveToPlay();
+
+            if (!isPlayingClickAnimation)
+            {
+                StartCoroutine(DelayedClick());
+                isPlayingClickAnimation = true;
+            }
+        }
+        else
+        {
+            if (!isPlayingFlipAnimation)
+            {
+                StartCoroutine(DelayedFlip());
+                isPlayingFlipAnimation = true;
+            }
+        }
     }
 
     private void Update()
     {
         if (firstCard != null && secondCard != null)
         {
-            int firstCardGroup = firstCard.GetComponent<CardData>().cardGroup;
-            int secondCardGroup = secondCard.GetComponent<CardData>().cardGroup;
-
-            if (firstCardGroup == secondCardGroup)
+            if (!OnDoubleCardFlipFunctionActive)
             {
-                Debug.Log("IGUAIS");
-
-                firstCard = null;
-                secondCard = null;
+                OnDoubleCardFlipFunctionActive = true;
+                OnDoubleCardFlip();
             }
-            else
-            {
-                if (!isPlayingFlipAnimation)
-                {
-                    StartCoroutine(DelayedFlip());
-                    isPlayingFlipAnimation = true;
-                }
-            }
-
         }
     }
 }

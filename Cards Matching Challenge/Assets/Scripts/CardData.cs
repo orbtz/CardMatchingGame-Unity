@@ -6,5 +6,11 @@ public class CardData : MonoBehaviour
     public int cardGroup;
 
     public bool isActiveToFlip = true;
+    public bool isActiveToPlay = true;
+
+    public void SetCardInactiveToPlay()
+    {
+        isActiveToPlay = false;
+    }
 
 }

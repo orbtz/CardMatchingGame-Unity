@@ -3,6 +3,6 @@
     class WebsocketMessage
     {
         public string type;
-        public string data;
+        public string value;
     }
 }

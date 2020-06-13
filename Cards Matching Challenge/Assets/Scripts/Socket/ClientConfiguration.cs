@@ -12,9 +12,21 @@ public class ClientConfiguration : MonoBehaviour
 {
     WebSocket websocket;
 
+    Player player;
+    string JsonPlayer;
+
+    WebsocketMessage message;
+    string JsonMessage;
+
+    string responseMessage;
+
+    public PlayerSessionInformation PlayerSessionInformation;
+
     // Start is called before the first frame update
     async void Start()
     {
+        PlayerSessionInformation.SetGameStart();
+        PlayerSessionInformation.SetClock();
 
         //websocket = new WebSocket("wss://card-matching-server.herokuapp.com/socket.io/?EIO=4&transport=websocket");
         websocket = new WebSocket("ws://localhost:3000");
@@ -23,28 +35,8 @@ public class ClientConfiguration : MonoBehaviour
         {
             Debug.Log("CONNECTED!");
 
-            Player player = new Player
-            {
-                name = "BAR",
-                moves = 2,
-                seconds = 4
-            };
-
-            string Jsonplayer = JsonUtility.ToJson(player);
-
-            WebsocketMessage message = new WebsocketMessage
-            {
-                type = "LEADERBOARD_SUBMIT",
-                data = Jsonplayer
-            };
-
-            Debug.Log(message.data);
-
-            string JsonMessage = JsonUtility.ToJson(message);
-
-            Debug.Log(JsonMessage);
-
-            websocket.SendText(JsonMessage);
+            //Debug.Log(message.value);
+            //Debug.Log(JsonMessage);
 
         };
 
@@ -60,13 +52,32 @@ public class ClientConfiguration : MonoBehaviour
 
         websocket.OnMessage += (bytes) =>
         {
-
-            var message = System.Text.Encoding.UTF8.GetString(bytes);
-            Debug.Log(message);
-
+            //var message = System.Text.Encoding.UTF8.GetString(bytes);
+            responseMessage = System.Text.Encoding.UTF8.GetString(bytes);
+            Debug.Log(responseMessage);
         };
 
-        await websocket.Connect();
+        await websocket.Connect(); //Posso criar uma condição para tentar realizar a abertura de conexão
+    }
+
+    void SendPlayerInformation(Player playerData)
+    {
+        player = new Player()
+        {
+            name = "FRB",
+            moves = playerData.moves,
+            seconds = playerData.seconds
+        };
+        JsonPlayer = JsonUtility.ToJson(player);
+
+        message = new WebsocketMessage()
+        {
+            type = "LEADERBOARD_SUBMIT",
+            value = JsonPlayer
+        };
+        JsonMessage = JsonUtility.ToJson(message);
+        
+        websocket.SendText(JsonMessage); //Send Data
     }
 
     private async void OnApplicationQuit()

@@ -69,12 +69,10 @@ public class MouseInput : MonoBehaviour
                 if (cardCheck.firstCard == null)
                 {
                     cardCheck.firstCard = this.gameObject;
-
                 }
                 else
                 {
                     cardCheck.secondCard = this.gameObject;
-
                 }
 
                 canClick = false;
