@@ -7,5 +7,6 @@ namespace Assets.Scripts.Socket
         public string name;
         public int moves;
         public int seconds;
+        public int score;
     }
 }

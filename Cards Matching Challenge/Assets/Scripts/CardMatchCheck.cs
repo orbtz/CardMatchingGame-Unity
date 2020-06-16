@@ -5,13 +5,16 @@ public class CardMatchCheck : MonoBehaviour
 {
     public GameObject firstCard;
     public GameObject secondCard;
+    public GameObject thirdCard;
 
     public PlayerSessionInformation PlayerSessionInformation;
 
     public bool isPlayingFlipAnimation = false;
     public bool isPlayingClickAnimation = false;
 
-    bool OnDoubleCardFlipFunctionActive = false;
+    bool OnAllCardFlipFunctionActive = false;
+
+    bool wasFirstCard = true;
 
     IEnumerator DelayedFlip()
     {
@@ -19,15 +22,18 @@ public class CardMatchCheck : MonoBehaviour
 
         firstCard.GetComponent<MouseInput>().StartCoroutine("RiseCard");
         secondCard.GetComponent<MouseInput>().StartCoroutine("RiseCard");
+        thirdCard.GetComponent<MouseInput>().StartCoroutine("RiseCard");
 
         firstCard.GetComponent<CardData>().isActiveToFlip = true;
         secondCard.GetComponent<CardData>().isActiveToFlip = true;
+        thirdCard.GetComponent<CardData>().isActiveToFlip = true;
 
         firstCard = null;
         secondCard = null;
+        thirdCard = null;
 
         isPlayingFlipAnimation = false;
-        OnDoubleCardFlipFunctionActive = false;
+        OnAllCardFlipFunctionActive = false;
     }
 
     IEnumerator DelayedClick()
@@ -36,23 +42,35 @@ public class CardMatchCheck : MonoBehaviour
 
         firstCard = null;
         secondCard = null;
+        thirdCard = null;
 
         isPlayingClickAnimation = false;
-        OnDoubleCardFlipFunctionActive = false;
+        OnAllCardFlipFunctionActive = false;
     }
 
-    public void OnDoubleCardFlip()
+    public void OnLastCardFlip()
     {
+        if (wasFirstCard)
+        {
+            PlayerSessionInformation.SetGameStart();
+            PlayerSessionInformation.SetClock();
+
+            wasFirstCard = false;
+        }
+
         PlayerSessionInformation.SetExtraMove(); //Add Move
 
         int firstCardGroup = firstCard.GetComponent<CardData>().cardGroup;
         int secondCardGroup = secondCard.GetComponent<CardData>().cardGroup;
+        int thirdCardGroup = thirdCard.GetComponent<CardData>().cardGroup;
 
-        if (firstCardGroup == secondCardGroup)
+        //Ficar de Olho
+        if (firstCardGroup == secondCardGroup && firstCardGroup == thirdCardGroup)
         {
             // Set Inactive
             firstCard.GetComponent<CardData>().SetCardInactiveToPlay();
             secondCard.GetComponent<CardData>().SetCardInactiveToPlay();
+            thirdCard.GetComponent<CardData>().SetCardInactiveToPlay();
 
             if (!isPlayingClickAnimation)
             {
@@ -72,12 +90,12 @@ public class CardMatchCheck : MonoBehaviour
 
     private void Update()
     {
-        if (firstCard != null && secondCard != null)
+        if (firstCard != null && secondCard != null && thirdCard != null)
         {
-            if (!OnDoubleCardFlipFunctionActive)
+            if (!OnAllCardFlipFunctionActive)
             {
-                OnDoubleCardFlipFunctionActive = true;
-                OnDoubleCardFlip();
+                OnAllCardFlipFunctionActive = true;
+                OnLastCardFlip();
             }
         }
     }

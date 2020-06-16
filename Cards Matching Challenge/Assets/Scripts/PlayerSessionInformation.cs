@@ -7,13 +7,13 @@ public class PlayerSessionInformation : MonoBehaviour
     public string playername;
     public int moves;
     public int seconds;
-    public float finalPoints;
+    public int score;
 
     public void SetGameStart()
     {
         moves = 0;
         seconds = 0;
-        finalPoints = 0;
+        score = 0;
     }
 
     public void SetPlayerName(string name)
@@ -44,10 +44,9 @@ public class PlayerSessionInformation : MonoBehaviour
         seconds += 1;
     }
 
-    public float SetAndReturnFinalResult()
+    public void SetFinalScore()
     {
-        finalPoints = seconds * moves;
-        return (finalPoints);
+        score = (moves * 5) + seconds;
     }
 
     public Player GetSessionInformation()
@@ -56,7 +55,8 @@ public class PlayerSessionInformation : MonoBehaviour
         {
             name = playername,
             moves = moves,
-            seconds = seconds
+            seconds = seconds,
+            score = score
         };
     }
 

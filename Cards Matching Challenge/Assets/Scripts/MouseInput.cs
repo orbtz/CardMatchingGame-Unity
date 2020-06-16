@@ -63,16 +63,19 @@ public class MouseInput : MonoBehaviour
         if (Input.GetMouseButtonDown(0) && canClick && cardData.isActiveToFlip)
         {
 
-            if (cardCheck.firstCard == null || cardCheck.secondCard == null)
+            if (cardCheck.firstCard == null || cardCheck.secondCard == null || cardCheck.thirdCard == null)
             {
 
                 if (cardCheck.firstCard == null)
                 {
                     cardCheck.firstCard = this.gameObject;
                 }
-                else
+                else if (cardCheck.secondCard == null)
                 {
                     cardCheck.secondCard = this.gameObject;
+                } else
+                {
+                    cardCheck.thirdCard = this.gameObject;
                 }
 
                 canClick = false;
