@@ -23,6 +23,9 @@ public class MouseInput : MonoBehaviour
 
     IEnumerator RiseCard()
     {
+        initialPosition = transform.localPosition;
+        finalPosition = transform.localPosition + (Vector3.up * flipData.maxHeigth);
+
         while (Vector3.Distance(transform.position, finalPosition) > 0.01f)
         {
             transform.localPosition = Vector3.MoveTowards(transform.localPosition, finalPosition, flipData.upforceSpeed * Time.deltaTime);
@@ -83,9 +86,6 @@ public class MouseInput : MonoBehaviour
 
                 cardRB.useGravity = false;
                 cardRB.isKinematic = true;
-
-                initialPosition = transform.localPosition;
-                finalPosition = transform.localPosition + (Vector3.up * flipData.maxHeigth);
 
                 StartCoroutine(RiseCard());
             }

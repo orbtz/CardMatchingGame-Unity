@@ -8,6 +8,7 @@ public class CardMatchCheck : MonoBehaviour
     public GameObject thirdCard;
 
     public PlayerSessionInformation PlayerSessionInformation;
+    public CardGroupGot GroupNameGot;
 
     public bool isPlayingFlipAnimation = false;
     public bool isPlayingClickAnimation = false;
@@ -64,9 +65,10 @@ public class CardMatchCheck : MonoBehaviour
         int secondCardGroup = secondCard.GetComponent<CardData>().cardGroup;
         int thirdCardGroup = thirdCard.GetComponent<CardData>().cardGroup;
 
-        //Ficar de Olho
-        if (firstCardGroup == secondCardGroup && firstCardGroup == thirdCardGroup)
+        if (firstCardGroup == secondCardGroup && firstCardGroup == thirdCardGroup) //If all 3 cards match!
         {
+            GroupNameGot.CheckCardGot(firstCardGroup); //Flip in the UI
+
             // Set Inactive
             firstCard.GetComponent<CardData>().SetCardInactiveToPlay();
             secondCard.GetComponent<CardData>().SetCardInactiveToPlay();
