@@ -10,7 +10,7 @@ public class CameraNewPosition : MonoBehaviour
     public void CameraPositionGame()
     {
         GameUI.SetActive(true);
-        //LeaderboardUI.SetActive(false);
+        LeaderboardUI.SetActive(false);
 
         transform.position = new Vector3(18.6f, 49.1f, 8f);
     }
@@ -18,7 +18,7 @@ public class CameraNewPosition : MonoBehaviour
     public void CameraPositionLeaderboard()
     {
         GameUI.SetActive(false);
-        //LeaderboardUI.SetActive(true);
+        LeaderboardUI.SetActive(true);
 
         transform.position = new Vector3(18.6f, 49.1f, 30f);
     }

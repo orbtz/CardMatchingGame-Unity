@@ -62,6 +62,7 @@ public class GameLoop : MonoBehaviour
             Debug.Log("Score:" + p.score);
 
             clientConf.SendPlayerInformation(p);
+            clientConf.SendMessage("LEADERBOARD_GET");
         }
     }
 }

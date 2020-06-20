@@ -1,26 +1,24 @@
 ﻿using UnityEngine;
 
 using NativeWebSocket;
-using System.Collections;
-
-using System.Collections.Generic;
-using System;
-using System.Threading.Tasks;
 using Assets.Scripts.Socket;
+using System.Linq;
+using System.Collections.Generic;
+using System.Threading.Tasks;
 
 public class ClientConfiguration : MonoBehaviour
 {
     WebSocket websocket;
 
-    Player player;
     string JsonPlayer;
 
     WebsocketMessage message;
     string JsonMessage;
 
-    string responseMessage;
+    public List<Player> leaderboardList;
 
     public PlayerSessionInformation PlayerSessionInformation;
+    public LeaderboardData LeaderboardData;
 
     // Start is called before the first frame update
     async void Start()
@@ -34,9 +32,6 @@ public class ClientConfiguration : MonoBehaviour
         websocket.OnOpen += () =>
         {
             Debug.Log("CONNECTED!");
-
-            //Debug.Log(message.value);
-            //Debug.Log(JsonMessage);
 
         };
 
@@ -52,22 +47,54 @@ public class ClientConfiguration : MonoBehaviour
 
         websocket.OnMessage += (bytes) =>
         {
-            //var message = System.Text.Encoding.UTF8.GetString(bytes);
-            responseMessage = System.Text.Encoding.UTF8.GetString(bytes);
-            Debug.Log(responseMessage);
+            // getting the message as a string
+            string message = System.Text.Encoding.UTF8.GetString(bytes);
+
+            //Check if it is about the leaderboard
+            LeaderboardMessage messageFromJSON = JsonUtility.FromJson<LeaderboardMessage>(message);
+            //string type = messageFromJSON.type;
+
+            Debug.Log(messageFromJSON.value.Length);
+
+            if (messageFromJSON.type == "LEADERBOARD_GET")
+            {
+                leaderboardList.Clear();
+
+                for (int x = 0; x < messageFromJSON.value.Length; x++)
+                {
+                    Player player = new Player
+                    {
+                        name = messageFromJSON.value[x].name,
+                        moves = messageFromJSON.value[x].moves,
+                        seconds = messageFromJSON.value[x].seconds,
+                        score = messageFromJSON.value[x].score
+                    };
+
+                    leaderboardList.Add(player);
+                }
+
+                LeaderboardData.UpdateLeaderboardData(leaderboardList);
+            }
+
         };
 
         await websocket.Connect(); //Posso criar uma condição para tentar realizar a abertura de conexão
     }
 
+    public void SendMessage(string dataType)
+    {
+        message = new WebsocketMessage()
+        {
+            type = dataType,
+            value = ""
+        };
+        JsonMessage = JsonUtility.ToJson(message);
+
+        websocket.SendText(JsonMessage); //Send Data
+    }
+
     public void SendPlayerInformation(Player playerData)
     {
-        //player = new Player()
-        //{
-        //    name = "FRB",
-        //    moves = playerData.moves,
-        //    seconds = playerData.seconds
-        //};
         JsonPlayer = JsonUtility.ToJson(playerData);
 
         message = new WebsocketMessage()

@@ -2,6 +2,7 @@
 
 namespace Assets.Scripts.Socket
 {
+    [Serializable]
     public class Player
     {
         public string name;
