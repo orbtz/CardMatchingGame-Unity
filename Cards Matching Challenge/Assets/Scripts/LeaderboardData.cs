@@ -1,6 +1,5 @@
 ﻿using Assets.Scripts.Socket;
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -15,10 +14,15 @@ public class LeaderboardData : MonoBehaviour
 
     public void UpdateLeaderboardData(List<Player> data)
     {
-        leaderboard.Clear();
+        leaderboard = new List<Player>();
         leaderboard = data;
 
-        for (int x = 0; x < leaderboard.Count; x++)
+        foreach (Transform child in LeaderboardParent.transform)
+        {
+            Destroy(child.gameObject);
+        }
+
+        for (int x = 0; (x < leaderboard.Count) && (x < 9); x++)
         {
             GameObject prefab = Instantiate(LeaderboardPrefab);
             prefab.transform.SetParent(LeaderboardParent.transform);
@@ -33,18 +37,14 @@ public class LeaderboardData : MonoBehaviour
 
             Text[] prefabChildren = prefab.GetComponentsInChildren<Text>();
 
-            prefabChildren[0].text = leaderboard[x].name;
-            prefabChildren[1].text = leaderboard[x].moves.ToString();
-            prefabChildren[2].text = leaderboard[x].seconds.ToString();
-            prefabChildren[3].text = leaderboard[x].score.ToString();
-        }
-    }
+            //Convert from seconds
+            TimeSpan time = TimeSpan.FromSeconds(leaderboard[x].seconds);
 
-    private void Update()
-    {
-        if (Input.GetKeyDown(KeyCode.L))
-        {
-            websocket.SendMessage("LEADERBOARD_GET");
+            prefabChildren[0].text = (x + 1).ToString();
+            prefabChildren[1].text = leaderboard[x].name;
+            prefabChildren[2].text = leaderboard[x].moves.ToString();
+            prefabChildren[3].text = time.ToString(@"mm\:ss");
+            prefabChildren[4].text = leaderboard[x].score.ToString();
         }
     }
 

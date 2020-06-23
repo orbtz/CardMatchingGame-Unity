@@ -1,4 +1,5 @@
-﻿using Assets.Scripts.Socket;
+﻿using Assets.Scripts;
+using Assets.Scripts.Socket;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
@@ -14,6 +15,8 @@ public class GameLoop : MonoBehaviour
     public CardSort CardSort;
     public List<bool> EveryCardActive;
 
+    public GameObject WinScreen;
+
     public bool GameHasActiveCard = true;
 
     private void Start()
@@ -21,10 +24,7 @@ public class GameLoop : MonoBehaviour
         CardSort.SortEveryCard();
         CardSort.PlaceCards();
 
-        //foreach (CardData card in CardsParentGameObject.GetComponentsInChildren<CardData>())
-        //{
-        //    Debug.Log(card.name  + " - " + card.isActiveToPlay);
-        //}
+        session.SetPlayerName(PlayerPrefs.GetString("playerName"));
     }
 
     private void Update()
@@ -51,6 +51,9 @@ public class GameLoop : MonoBehaviour
         {
             IsGameLoopActive = false;
 
+            //SHOW WIN WINDOW
+            WinScreen.SetActive(true);
+
             session.SetFinalScore();
             session.StopClock();
 
@@ -64,5 +67,10 @@ public class GameLoop : MonoBehaviour
             clientConf.SendPlayerInformation(p);
             clientConf.SendMessage("LEADERBOARD_GET");
         }
+    }
+
+    public void RestartScene()
+    {
+        SceneManager.LoadScene("Game");
     }
 }
