@@ -2,9 +2,7 @@
 
 using NativeWebSocket;
 using Assets.Scripts.Socket;
-using System.Linq;
 using System.Collections.Generic;
-using System.Threading.Tasks;
 
 public class ClientConfiguration : MonoBehaviour
 {
@@ -26,8 +24,8 @@ public class ClientConfiguration : MonoBehaviour
         //PlayerSessionInformation.SetGameStart();
         //PlayerSessionInformation.SetClock();
 
-        //websocket = new WebSocket("wss://card-matching-server.herokuapp.com/socket.io/?EIO=4&transport=websocket");
-        websocket = new WebSocket("ws://localhost:3000");
+        websocket = new WebSocket("wss://card-matching-server.herokuapp.com/socket.io/?EIO=4&transport=websocket");
+        //websocket = new WebSocket("ws://localhost:3000");
 
         websocket.OnOpen += () =>
         {
